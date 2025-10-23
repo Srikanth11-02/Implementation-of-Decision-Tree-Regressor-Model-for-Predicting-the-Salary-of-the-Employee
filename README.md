@@ -32,25 +32,21 @@ data=pd.read_csv("Salary.csv")
 data.head()
 data.info()
 data.isnull().sum()
-```
-```
+
 from sklearn.preprocessing import LabelEncoder
 le=LabelEncoder()
 data["Position"]=le.fit_transform(data["Position"])
 data.head()
-```
-```
+
 x=data[["Position","Level"]]
 x.head()
 y=data["Salary"]
 y.head()
 
-```
-```
+
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=2)
-```
-```
+
 from sklearn.tree import DecisionTreeRegressor
 dt=DecisionTreeRegressor()
 dt.fit(x_train,y_train)
@@ -58,13 +54,11 @@ y_pred=dt.predict(x_test)
 y_pred
 from sklearn.metrics import r2_score
 r2=r2_score(y_test,y_pred)
-```
-```
+
 R2 score:  0.48611111111111116
 
 
-```
-```
+
 dt.predict([[5,6]])
 ```
 
